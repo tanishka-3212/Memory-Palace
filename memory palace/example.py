@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="your-api-key")
+client = OpenAI(api_key="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")
 
 response = client.images.generate(
   model="dall-e-3",
