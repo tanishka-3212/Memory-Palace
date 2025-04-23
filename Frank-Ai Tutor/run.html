@@ -10,7 +10,7 @@
 <!-- <link rel="stylesheet" href="styles.css"> -->
 <link rel="shortcut icon" href="img/svg_418518.svg" type="image/x-icon">
 <style>
-        @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         :root {
             /* Ocean palette based on #3BB7C7 */
             --primary-color: #3BB7C7;    /* Teal-blue */
@@ -44,6 +44,20 @@
             
             /* Transition */
             --transition: all 0.3s ease;
+
+            /* Base size adjustment for different scaling factors */
+            --base-size: 16px;
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (min-resolution: 120dpi) {
+            :root {
+                --base-size: 14px;
+            }
+        }
+
+        html {
+            font-size: var(--base-size);
         }
 
         * {
@@ -60,6 +74,7 @@
             line-height: 1.6;
             overflow: hidden;
             height: 100vh;
+            font-size: 1rem;
         }
 
         /* Main Layout */
@@ -70,11 +85,11 @@
 
         /* Sidebar */
         .sidebar {
-            width: 300px;
+            width: 18.75rem;
             flex-shrink: 0;
             background: linear-gradient(135deg, var(--sidebar-bg-gradient-1), var(--sidebar-bg-gradient-2));
             color: var(--sidebar-text);
-            padding: 20px;
+            padding: 1.25rem;
             display: flex;
             flex-direction: column;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -126,8 +141,8 @@
 
         /* Bubble instances with different sizes and positions */
         .bubble-1 {
-            width: 100px;
-            height: 100px;
+            width: 6.25rem;
+            height: 6.25rem;
             background-color: var(--bubble-color-1);
             left: 10%;
             bottom: 0;
@@ -136,8 +151,8 @@
         }
 
         .bubble-2 {
-            width: 150px;
-            height: 150px;
+            width: 9.375rem;
+            height: 9.375rem;
             background-color: var(--bubble-color-2);
             left: 30%;
             animation-duration: 18s;
@@ -145,8 +160,8 @@
         }
 
         .bubble-3 {
-            width: 75px;
-            height: 75px;
+            width: 4.6875rem;
+            height: 4.6875rem;
             background-color: var(--bubble-color-1);
             left: 50%;
             animation-duration: 12s;
@@ -154,8 +169,8 @@
         }
 
         .bubble-4 {
-            width: 85px;
-            height: 85px;
+            width: 5.3125rem;
+            height: 5.3125rem;
             background-color: var(--bubble-color-2);
             left: 70%;
             animation-duration: 20s;
@@ -163,8 +178,8 @@
         }
 
         .bubble-5 {
-            width: 50px;
-            height: 50px;
+            width: 3.125rem;
+            height: 3.125rem;
             background-color: var(--bubble-color-1);
             left: 85%;
             animation-duration: 16s;
@@ -172,7 +187,7 @@
         }
 
         .sidebar::-webkit-scrollbar {
-            width: 6px;
+            width: 0.375rem;
         }
 
         .sidebar::-webkit-scrollbar-track {
@@ -181,7 +196,7 @@
 
         .sidebar::-webkit-scrollbar-thumb {
             background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 3px;
+            border-radius: 0.1875rem;
             border: none;
         }
 
@@ -192,10 +207,10 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding-bottom: 20px;
+            gap: 0.75rem;
+            padding-bottom: 1.25rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             position: relative;
             z-index: 2;
         }
@@ -205,7 +220,7 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            height: 3px;
+            height: 0.1875rem;
             width: 100%;
             background: linear-gradient(90deg, var(--accent-color), transparent);
         }
@@ -214,7 +229,7 @@
         .logo-link {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.75rem;
             text-decoration: none;
             color: var(--light-text);
             transition: var(--transition);
@@ -225,29 +240,29 @@
         }
 
         .logo-img {
-            width: 35px;
-            height: 35px;
+            width: 2.1875rem;
+            height: 2.1875rem;
             object-fit: contain;
-            filter: drop-shadow(0 0 3px rgba(91, 209, 223, 0.5));
+            filter: drop-shadow(0 0 0.1875rem rgba(91, 209, 223, 0.5));
         }
 
         .logo-text {
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--light-text);
-            text-shadow: 0 0 5px rgba(91, 209, 223, 0.3);
+            text-shadow: 0 0 0.3125rem rgba(91, 209, 223, 0.3);
         }
 
         .search-box {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             z-index: 2;
         }
 
         .search-box input {
             width: 100%;
-            padding: 10px 15px;
-            border-radius: 8px;
+            padding: 0.625rem 0.9375rem;
+            border-radius: 0.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.07);
             color: var(--sidebar-text);
@@ -259,7 +274,7 @@
         .search-box input:focus {
             outline: none;
             border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(91, 209, 223, 0.2);
+            box-shadow: 0 0 0 0.125rem rgba(91, 209, 223, 0.2);
         }
 
         .search-box input::placeholder {
@@ -268,7 +283,7 @@
 
         .search-box i {
             position: absolute;
-            right: 12px;
+            right: 0.75rem;
             top: 50%;
             transform: translateY(-50%);
             color: rgba(255, 255, 255, 0.6);
@@ -279,30 +294,30 @@
             opacity: 0.9;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 0.0625rem;
+            margin-bottom: 0.9375rem;
             position: relative;
             z-index: 2;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.3);
         }
 
         .topic-list {
             list-style: none;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             position: relative;
             z-index: 2;
         }
 
         .topic-list li {
-            padding: 12px 15px;
-            margin-bottom: 8px;
-            border-radius: 8px;
+            padding: 0.75rem 0.9375rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
             font-size: 0.95rem;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.625rem;
             position: relative;
             overflow: hidden;
             background-color: rgba(255, 255, 255, 0.03);
@@ -313,7 +328,7 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            height: 2px;
+            height: 0.125rem;
             width: 100%;
             background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
             transform: translateX(-100%);
@@ -326,19 +341,19 @@
 
         .topic-list li i {
             font-size: 1.1rem;
-            width: 20px;
+            width: 1.25rem;
             text-align: center;
             color: var(--sidebar-muted);
         }
 
         .topic-list li:hover {
             background-color: var(--sidebar-hover);
-            transform: translateX(5px);
+            transform: translateX(0.3125rem);
         }
 
         .topic-list li.active {
             background-color: rgba(75, 197, 212, 0.2);
-            border-left: 3px solid var(--sidebar-active);
+            border-left: 0.1875rem solid var(--sidebar-active);
             font-weight: 500;
         }
 
@@ -353,9 +368,9 @@
         }
 
         .history-list li {
-            padding: 10px 15px;
-            margin-bottom: 5px;
-            border-radius: 8px;
+            padding: 0.625rem 0.9375rem;
+            margin-bottom: 0.3125rem;
+            border-radius: 0.5rem;
             font-size: 0.95rem;
             cursor: pointer;
             transition: var(--transition);
@@ -367,7 +382,7 @@
 
         .history-list li:hover {
             background-color: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
+            transform: translateX(0.3125rem);
         }
 
         .chat-history-container {
@@ -378,7 +393,7 @@
         }
 
         .history-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             overflow: hidden;
         }
 
@@ -386,9 +401,9 @@
             font-size: 0.8rem;
             color: var(--sidebar-text);
             opacity: 0.9;
-            padding: 8px 15px;
+            padding: 0.5rem 0.9375rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.0625rem;
             position: relative;
         }
 
@@ -397,17 +412,17 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            height: 1px;
+            height: 0.0625rem;
             width: 100%;
             background: linear-gradient(90deg, var(--accent-color), transparent);
         }
 
         .history-item {
-            padding: 12px 15px;
+            padding: 0.75rem 0.9375rem;
             background-color: rgba(255, 255, 255, 0.05);
             color: var(--sidebar-text);
-            border-radius: 8px;
-            margin: 8px 0;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
             cursor: pointer;
             transition: var(--transition);
             animation: fadeIn 0.3s ease;
@@ -420,7 +435,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
+            width: 0.25rem;
             height: 100%;
             background-color: var(--accent-color);
             opacity: 0;
@@ -433,20 +448,20 @@
 
         .history-item:hover {
             background-color: rgba(255, 255, 255, 0.466);
-            transform: translateX(5px);
+            transform: translateX(0.3125rem);
         }
 
         .history-item.active {
             background-color: rgba(75, 197, 212, 0.2);
-            border-left: 3px solid var(--sidebar-active);
+            border-left: 0.1875rem solid var(--sidebar-active);
         }
 
         .history-topic {
             font-weight: 500;
-            margin-bottom: 4px;
+            margin-bottom: 0.25rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
         .history-preview {
@@ -460,7 +475,7 @@
         .history-time {
             font-size: 0.75rem;
             color: var(--sidebar-muted);
-            margin-top: 4px;
+            margin-top: 0.25rem;
         }
         /* Content Area */
         .content-area {
@@ -490,26 +505,26 @@
             background-color: white;
             width: 100%;
             max-width: 100%;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-top-left-radius: 0.625rem;
+            border-top-right-radius: 0.625rem;
         }
 
         .chat-input-container {
             margin-top: auto;
-            padding: 15px 20px;
+            padding: 0.9375rem 1.25rem;
             border-top: 1px solid var(--border-color);
             background-color: white;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 0.625rem;
+            border-bottom-right-radius: 0.625rem;
         }
 
         .chat-input {
             display: flex;
-            gap: 10px;
+            gap: 0.625rem;
             background-color: var(--section-bg);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 8px 16px;
+            border-radius: 1.25rem;
+            padding: 0.5rem 1rem;
         }
 
 
@@ -517,14 +532,14 @@
             flex: 1;
             border: none;
             background: transparent;
-            padding: 10px;
+            padding: 0.625rem;
             font-size: 0.95rem;
             outline: none;
         }
         .upload-icon {
           cursor: pointer;
-          font-size: 24px;
-          margin:5px  5px;
+          font-size: 1.5rem;
+          margin: 0.3125rem 0.3125rem;
           color: var(--primary-color);
         }
         .file-upload {
@@ -536,41 +551,50 @@
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 6px;
-            padding: 10px 16px;
+            border-radius: 0.375rem;
+            padding: 0.625rem 1rem;
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 0.3125rem;
         }
 
         .chat-input button:hover {
             background-color: var(--hover-color);
-        }
-
-        /* Right Panel Layout Fix */
+                }
+       /* Right Panel Layout Fix */
         .right-panel {
             width: 40%;
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             gap: 0.5rem;
-            height: calc(100vh - 2rem); 
+            height: calc(100vh - 2rem);
             padding-right: 1rem;
         }
 
-        /* Image Container Update */
-        .image-container {
-            flex: 0 0 auto;
-            background-color: var(--section-bg);
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            width: 100%; 
+        /* Make this a flex container to control child heights */
+        .right-panel-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            height: 100%;
         }
 
-        .image-title{
+        /* Image Container - Fixed at 55% height */
+        .image-container {
+            height: 47%;
+            background-color: var(--section-bg);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--card-shadow);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-title {
             text-align: center;
             font-size: 1.2rem;
             font-weight: 800;
@@ -579,52 +603,52 @@
         }
 
         #generated-image {
+            flex: 1;
             width: 100%;
-            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #f7f7f8;
-            border-radius: 8px;
+            border-radius: 0.5rem;
             overflow: hidden;
             margin: 0.5rem 0;
         }
 
-       #generated-image img {
+        #generated-image img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover; /* or contain */
-            border-radius: 8px;
+            border-radius: 0.5rem;
         }
 
-
         #displayedImage {
-            width: 800px;        
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 0.5rem;
             box-shadow: var(--card-shadow);
         }
 
-        /* Follow-up Chat Area Fix */
+        /* Follow-up Chat Area - Fixed at 45% height */
         .follow-up-sidebar {
-            flex: 1;
+            height: 53%;
             display: flex;
             flex-direction: column;
             background-color: var(--section-bg);
             padding: 1rem;
-            border-radius: 8px;
-            min-height: 0;
+            border-radius: 0.5rem;
             box-shadow: var(--card-shadow);
         }
 
-         .follow-up-sidebar h3 {
+        .follow-up-sidebar h3 {
             text-align: center;
             font-size: 1.2rem;
             font-weight: 800;
             font-style: italic;
             color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
         }
-    
 
         .follow-up-messages {
             flex: 1;
@@ -632,27 +656,26 @@
             margin-bottom: 1rem;
             padding: 1rem;
             background-color: white;
-            border-radius: 8px;
+            border-radius: 0.5rem;
             display: flex;
             flex-direction: column;
-            min-height: 0;
+            min-height: 0; /* Important for Firefox */
         }
 
         .follow-up-input {
             display: flex;
-            gap: 10px;
+            gap: 0.625rem;
             background-color: var(--section-bg);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 8px 16px;
-            margin-top: auto;
+            border-radius: 1.25rem;
+            padding: 0.5rem 1rem;
         }
 
         .follow-up-input input {
             flex: 1;
             border: none;
             background: transparent;
-            padding: 10px;
+            padding: 0.625rem;
             font-size: 0.95rem;
             outline: none;
         }
@@ -661,33 +684,32 @@
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 6px;
-            padding: 10px 16px;
+            border-radius: 0.375rem;
+            padding: 0.625rem 1rem;
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 0.3125rem;
         }
 
         .follow-up-input button:hover {
             background-color: var(--hover-color);
         }
-
-        /* Add this to your existing CSS, just before the @media queries */
+/* Add this to your existing CSS, just before the @media queries */
         .menu-toggle {
             display: none; 
             position: fixed;
-            top: 15px;
-            left: 15px;
+            top: 0.9375rem;
+            left: 0.9375rem;
             z-index: 1001;
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 4px;
-            width: 40px;
-            height: 40px;
+            border-radius: 0.25rem;
+            width: 2.5rem;
+            height: 2.5rem;
             font-size: 1.2rem;
             align-items: center;
             justify-content: center;
@@ -695,10 +717,16 @@
             transition: var(--transition);
         }
 
+        @media (max-width: 992px) {
+    .menu-toggle {
+        display: flex; /* Show only on smaller screens */
+    }
+}
+
         /* Update message styles */
         .message {
             display: flex;
-            gap: 12px;
+            gap: 0.75rem;
             padding: 1rem;
             margin: 0.5rem 1rem;
             max-width: 70%;
@@ -714,7 +742,7 @@
             color: var(--text-color);
             margin-right: auto;
             margin-left: 0;
-            border-radius: 18px 18px 18px 0;
+            border-radius: 1.125rem 1.125rem 1.125rem 0;
             flex-direction: row;
         }
 
@@ -724,21 +752,21 @@
             color: var(--light-text);
             margin-left: auto;
             margin-right: 0;
-            border-radius: 18px 18px 0 18px;
+            border-radius: 1.125rem 1.125rem 0 1.125rem;
             flex-direction: row-reverse;
         }
 
         /* Avatar styles */
         .message-avatar {
-            width: 38px;  
-            height: 38px; 
+            width: 2.375rem;  
+            height: 2.375rem; 
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             overflow: hidden;
-            border: 2px solid var(--accent-color);
+            border: 0.125rem solid var(--accent-color);
         }
     
 
@@ -749,14 +777,14 @@
 
         .message.user .avatar-svg {
             width: 80%;
-            height:80%;
+            height: 80%;
             transform: scale(1.2);  
             color: var(--primary-color);
         }
 
         .message.bot .message-avatar {
             background-color: #f0f2f5;
-            padding: 6px;
+            padding: 0.375rem;
         }
 
         .message.user .message-avatar {
@@ -783,17 +811,17 @@
         .message.loading .message-content {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
         .loading-dots {
             display: flex;
-            gap: 4px;
+            gap: 0.25rem;
         }
 
         .loading-dots span {
-            width: 8px;
-            height: 8px;
+            width: 0.5rem;
+            height: 0.5rem;
             border-radius: 50%;
             background-color: var(--primary-color);
             animation: bounce 1.4s infinite ease-in-out;
@@ -812,27 +840,27 @@
             background-color: var(--sidebar-active);
             color: var(--sidebar-text);
             border: none;
-            border-radius: 6px;
-            padding: 8px 12px;
-            margin: 10px 0;
-            width: 240px;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            margin: 0.625rem 0;
+            width: 15rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 0.5rem;
             transition: var(--transition);
-            margin-top: 20px;
+            margin-top: 1.25rem;
+            columns: 1fr 1fr;
         }
 
         .clear-history-btn:hover {
-            background-color:var(--sidebar-hover);
+            background-color: var(--sidebar-hover);
         }
 
         .clear-history-btn i {
             font-size: 0.9rem;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -849,65 +877,165 @@
             100% { transform: scale(1); opacity: 0.7; }
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .content-area {
-                flex-direction: column;
-            }
+/* Enhance responsive design for better mobile and tablet experience */
 
-            .chat-container,
-            .right-panel {
-             max-width: unset;
-             min-width: unset;
-         }
+/* Base layout fixes */
+@media (max-width: 1200px) {
+    .content-area {
+        flex-direction: column;
+        height: calc(100vh - 2rem);
+        overflow-y: auto;
+        padding: 0;
+    }
 
-        }
+    .chat-container,
+    .right-panel {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
 
-        @media (max-width: 992px) {
-            .main-container {
-                grid-template-columns: 1fr;
-            }
+    .right-panel {
+        height: auto;
+        padding-right: 0;
+        flex-direction: column;
+    }
 
-            .sidebar {
-                display: none;
-                position: fixed;
-                z-index: 1000;
-                width: 300px;  /* Changed from 260px */
-                height: 100vh;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
+    .right-panel-content {
+        flex-direction: column;
+    }
 
-            .menu-toggle {
-                display: flex; /* Show only on smaller screens */
-            }
+    .image-container,
+    .follow-up-sidebar {
+        height: auto;
+        min-height: 300px;
+    }
+}
 
-            .sidebar.active {
-                display: flex;
-                transform: translateX(0);
-            }
-        }
+/* Tablet adjustments */
+@media (max-width: 992px) {
+    .main-container {
+        position: relative;
+    }
 
-        @media (max-width: 768px) {
-            .content-area {
-                grid-template-columns: 1fr;
-            }
+    .sidebar {
+        position: fixed;
+        left: -18.75rem;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        transition: left 0.3s ease;
+    }
 
-            .sidebar {
-                display: none;
-            }
+    .sidebar.active {
+        left: 0;
+        display: flex;
+    }
 
-            .chat-container {
-                grid-column: 1;
-            }
-        }
+    .chat-container {
+        padding: 0 1rem;
+        margin-top: 3rem; 
+    }
 
-        @media (max-width: 480px) {
-            .visualization-controls {
-                display: none;
-            }
-        }
+    /* Add overlay when sidebar is active */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
 
+    .sidebar-overlay.active {
+        display: block;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .message {
+        max-width: 85%;
+    }
+
+    .chat-input,
+    .follow-up-input {
+        flex-wrap: wrap;
+    }
+
+    .chat-input input,
+    .follow-up-input input {
+        width: calc(100% - 4rem);
+        order: 2;
+    }
+
+    .upload-icon {
+        order: 1;
+    }
+
+    .chat-input button,
+    .follow-up-input button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    #micButton, #followUpMicButton {
+        order: 3;
+    }
+
+    .chat-messages,
+    .follow-up-messages {
+        padding: 0.5rem;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+    .message {
+        max-width: 95%;
+        margin: 0.5rem 0;
+        padding: 0.75rem;
+    }
+
+    .message-avatar {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .chat-input button {
+        padding: 0.5rem;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .chat-input,
+    .follow-up-input {
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+/* Fix for follow-up area on landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .image-container {
+        height: 40%;
+    }
+    
+    .follow-up-sidebar {
+        height: 60%;
+    }
+    
+    .follow-up-messages {
+        max-height: 120px;
+    }
+}
+
+/* Additional JavaScript for sidebar toggle functionality */
+/* Add this to script.js */
     </style>
 </head>
 <body>

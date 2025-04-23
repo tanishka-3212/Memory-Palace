@@ -852,6 +852,106 @@ function adjustHeight(textarea) {
     textarea.style.height = textarea.scrollHeight + 'px'; // Set height based on content
 }
 
+// Add these functions to your script.js file
+
+// Function to toggle sidebar visibility
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContainer = document.querySelector('.main-container');
+    
+    sidebar.classList.toggle('active');
+    
+    // Create or remove overlay when sidebar is toggled
+    let overlay = document.querySelector('.sidebar-overlay');
+    if (!overlay && sidebar.classList.contains('active')) {
+        overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay active';
+        overlay.addEventListener('click', toggleSidebar);
+        mainContainer.appendChild(overlay);
+    } else if (overlay) {
+        overlay.remove();
+    }
+}
+
+// Event listener for menu toggle button
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleSidebar);
+    }
+    
+    // Adjust chat container height on window resize
+    window.addEventListener('resize', function() {
+        adjustLayoutForScreenSize();
+    });
+    
+    // Initial adjustment
+    adjustLayoutForScreenSize();
+    
+    // Handle file upload icon click
+    const uploadIcon = document.getElementById('upload-icon');
+    const fileUpload = document.getElementById('file-upload');
+    
+    if (uploadIcon && fileUpload) {
+        uploadIcon.addEventListener('click', function() {
+            fileUpload.click();
+        });
+    }
+    
+    // Make inputs submit on Enter key
+    const mainInput = document.getElementById('mainInput');
+    const followUpInput = document.getElementById('followUpInput');
+    
+    if (mainInput) {
+        mainInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+    
+    if (followUpInput) {
+        followUpInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleFollowUpQuestion();
+            }
+        });
+    }
+});
+
+// Function to adjust layout based on screen size
+function adjustLayoutForScreenSize() {
+    const contentArea = document.querySelector('.content-area');
+    const chatContainer = document.querySelector('.chat-container');
+    const rightPanel = document.querySelector('.right-panel');
+    
+    if (window.innerWidth <= 1200) {
+        // Stack layout for smaller screens
+        if (contentArea) contentArea.style.flexDirection = 'column';
+        if (chatContainer) {
+            chatContainer.style.width = '100%';
+            chatContainer.style.maxWidth = '100%';
+        }
+        if (rightPanel) {
+            rightPanel.style.width = '100%';
+            rightPanel.style.maxWidth = '100%';
+        }
+    } else {
+        // Side-by-side layout for larger screens
+        if (contentArea) contentArea.style.flexDirection = 'row';
+        if (chatContainer) {
+            chatContainer.style.width = '60%';
+            chatContainer.style.maxWidth = '60%';
+        }
+        if (rightPanel) {
+            rightPanel.style.width = '40%';
+            rightPanel.style.maxWidth = '40%';
+        }
+    }
+}
+
+
+
 // Export necessary functions
 window.addMessage = addMessage;
 window.callChatbot = callChatbot;
