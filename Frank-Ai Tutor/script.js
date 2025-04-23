@@ -1,4 +1,3 @@
-
 function extractTopicFromMessage(message) {
     const stopWords = new Set([
         "what", "is", "the", "a", "an", "to", "in", "of", "and", "for",
@@ -950,7 +949,40 @@ function adjustLayoutForScreenSize() {
     }
 }
 
+// Add to script.js
+function showLoadingState() {
+    const imageContainer = document.getElementById('generated-image');
+    imageContainer.innerHTML = `
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Generating image...</p>
+        </div>
+    `;
+}
 
+// Add to script.js
+function handleError(error, type = 'chat') {
+    const errorMessages = {
+        'chat': 'Sorry, I had trouble processing your message. Please try again.',
+        'image': 'Image generation failed. Please try a different prompt.',
+        'voice': 'Voice recognition not available. Please type your message.'
+    };
+    
+    addMessage('bot', errorMessages[type]);
+    console.error(`${type} Error:`, error);
+}
+
+// Add to script.js
+document.addEventListener('keydown', (e) => {
+    // Ctrl/Cmd + Enter to send message
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        sendMessage();
+    }
+    // Esc to clear input
+    if (e.key === 'Escape') {
+        document.getElementById('mainInput').value = '';
+    }
+});
 
 // Export necessary functions
 window.addMessage = addMessage;
@@ -958,4 +990,4 @@ window.callChatbot = callChatbot;
 window.sendMessage = sendMessage;
 window.handleFollowUpQuestion = handleFollowUpQuestion;
 window.startListening = startListening;
-window.speak = speak;   
+window.speak = speak;
